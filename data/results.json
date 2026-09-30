@@ -1,0 +1,150 @@
+{
+  "validation": [
+    {
+      "case": "zero",
+      "mu": 0.0,
+      "sigma": 700.0,
+      "pass_analytic": 0.11677003090127679,
+      "pass_mc": 0.109215,
+      "bust_mc": 0.419125
+    },
+    {
+      "case": "pos",
+      "mu": 60.0,
+      "sigma": 700.0,
+      "pass_analytic": 0.22634222990276187,
+      "pass_mc": 0.213505,
+      "bust_mc": 0.273305
+    },
+    {
+      "case": "neg",
+      "mu": -60.0,
+      "sigma": 700.0,
+      "pass_analytic": 0.052073719139734284,
+      "pass_mc": 0.048115,
+      "bust_mc": 0.582635
+    },
+    {
+      "case": "hi_vol",
+      "mu": 0.0,
+      "sigma": 1400.0,
+      "pass_analytic": 0.3189178727469934,
+      "pass_mc": 0.31826,
+      "bust_mc": 0.639055
+    }
+  ],
+  "geometry": {
+    "eventual_zero_edge_2to1": 0.3333333333333333,
+    "eventual_zero_edge_1p5to1": 0.4,
+    "finite30_zero_edge_2to1_sig700": 0.11554600569716082
+  },
+  "optimal_sigma_pos_edge": {
+    "60.0": {
+      "sigma_star": 1410.8786610878662,
+      "pass_star": 0.37794228635592025
+    }
+  },
+  "theta_example": {
+    "pass_T30_sig800": 0.16442737084373452,
+    "pass_T2_sig800": 0.0,
+    "pass_T30_sig500": 0.028141672313629632,
+    "pass_T2_sig500": 0.0
+  },
+  "skew_archetypes": {
+    "scalper_neg_skew(p=0.667,R=0.5)": {
+      "pass": 0.01887,
+      "bust": 0.43827,
+      "timeout": 0.54286,
+      "mu": 0.0,
+      "sigma": 494.9747468305833
+    },
+    "symmetric(p=0.5,R=1)": {
+      "pass": 0.09138,
+      "bust": 0.67918,
+      "timeout": 0.22944,
+      "mu": 0.0,
+      "sigma": 700.0
+    },
+    "trend_pos_skew(p=0.333,R=2)": {
+      "pass": 0.1645,
+      "bust": 0.78643,
+      "timeout": 0.04907,
+      "mu": 0.0,
+      "sigma": 989.9494936611666
+    }
+  },
+  "rule_effect": {
+    "static max-loss only": {
+      "sigma_star": 1542.4,
+      "pass_star": 0.31353333333333333,
+      "pass_at_sig700": 0.09396666666666667
+    },
+    "+ trailing drawdown": {
+      "sigma_star": 1542.4,
+      "pass_star": 0.2211,
+      "pass_at_sig700": 0.09323333333333333
+    },
+    "+ $2,000 daily limit": {
+      "sigma_star": 1312.0,
+      "pass_star": 0.17326666666666668,
+      "pass_at_sig700": 0.0912
+    },
+    "+ 50% consistency": {
+      "sigma_star": 1312.0,
+      "pass_star": 0.17013333333333333,
+      "pass_at_sig700": 0.0906
+    }
+  },
+  "jump_effect": {
+    "pure diffusion": {
+      "max_pass": 0.1748
+    },
+    "jumps: 2% prob, -3k gap": {
+      "max_pass": 0.10283333333333333
+    },
+    "jumps: 4% prob, -4k gap": {
+      "max_pass": 0.06323333333333334
+    }
+  },
+  "journey_ev": {
+    "fee": 129.0,
+    "split": 0.9,
+    "k": 350.0,
+    "breakeven_winrate_pct": 50.13900082065995,
+    "ev_at_p50": -21.19917000000001,
+    "pass_at_p50": 0.087
+  },
+  "rule_haircut": {
+    "negative edge": {
+      "best_pass": 0.312428885957726,
+      "permitted_pass": 0.02223200927200623,
+      "haircut_pct": 92.88413771221704
+    },
+    "zero edge": {
+      "best_pass": 0.33301227138876904,
+      "permitted_pass": 0.0673221319656719,
+      "haircut_pct": 79.783888538126
+    },
+    "mild +edge (+$60/d)": {
+      "best_pass": 0.377943387951442,
+      "permitted_pass": 0.16427356370280038,
+      "haircut_pct": 56.53487560843208
+    },
+    "strong +edge (+$150/d)": {
+      "best_pass": 0.5044375550714191,
+      "permitted_pass": 0.4226655773656753,
+      "haircut_pct": 16.21052534325411
+    }
+  },
+  "contract": {
+    "U": 6000.0,
+    "D": -3000.0,
+    "maxloss": 3000.0,
+    "ratio": 2.0,
+    "T": 30.0,
+    "daily_limit": 2000.0,
+    "consistency": 0.5,
+    "trades_per_day": 4,
+    "eventual_zero_edge": 0.3333333333333333
+  }
+}
